@@ -1,0 +1,9 @@
+{
+	"name": "adf-es-sqlbits2024",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "68813caa-21a7-427d-b957-620fb855378f",
+		"tenantId": "9f93bed4-1182-4620-b3f4-cda5045ff97b"
+	}
+}
