@@ -1,0 +1,49 @@
+{
+	"name": "CopyAWEntities",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Entities')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Execute CopyAWEntity",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CopyAWEntity",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Entity": "@item()"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Entities": {
+				"type": "Array",
+				"defaultValue": [
+					"Product",
+					"ProductSubcategory",
+					"ProductCategory"
+				]
+			}
+		},
+		"annotations": []
+	}
+}
