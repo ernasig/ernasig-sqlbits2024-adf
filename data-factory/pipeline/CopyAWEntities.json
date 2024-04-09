@@ -11,26 +11,28 @@
 					"items": {
 						"value": "@variables('Entities')",
 						"type": "Expression"
-					}
-				}
-			},
-			{
-				"name": "Execute CopyAWEntity",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"policy": {
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CopyAWEntity",
-						"type": "PipelineReference"
 					},
-					"waitOnCompletion": true,
-					"parameters": {
-						"Entity": "@item()"
-					}
+					"activities": [
+						{
+							"name": "Execute CopyAWEntity",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "CopyAWEntity",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"Entity": "@item()"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
